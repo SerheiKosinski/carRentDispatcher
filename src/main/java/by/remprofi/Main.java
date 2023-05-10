@@ -1,4 +1,4 @@
-package remprofi;
+package by.remprofi;
 
 public class Main {
     public static void main(String[] args) {

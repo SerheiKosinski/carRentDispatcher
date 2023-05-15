@@ -70,6 +70,53 @@ public class User {
     public void setDrivingLicense(Long drivingLicense) {
         this.drivingLicense = drivingLicense;
     }
+/*  public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public Long getPassportNumber() {
+        return passportNumber;
+    }
+
+    public void setPassportNumber(Long passportNumber) {
+        this.passportNumber = passportNumber;
+    }
+
+    public String getPassportSerial() {
+        return passportSerial;
+    }
+
+    public void setPassportSerial(String passportSerial) {
+        this.passportSerial = passportSerial;
+    }
+
+    public Long getDrivingLicense() {
+        return drivingLicense;
+    }
+
+    public void setDrivingLicense(Long drivingLicense) {
+        this.drivingLicense = drivingLicense;
+    }*/
 
     @Override
     public boolean equals(Object o) {

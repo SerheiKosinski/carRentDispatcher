@@ -2,6 +2,7 @@ package by.remprofi.controller;
 
 
 import by.remprofi.domain.User;
+import by.remprofi.repository.UserRepositoryImpl;
 import by.remprofi.servis.UserService;
 import by.remprofi.servis.UserServiceImpl;
 
@@ -17,7 +18,8 @@ import java.util.stream.Collectors;
 public class FrontController extends HttpServlet {
 
 
-    private final UserService userService = new UserServiceImpl();
+    private final UserService userService = new UserServiceImpl(new UserRepositoryImpl());
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

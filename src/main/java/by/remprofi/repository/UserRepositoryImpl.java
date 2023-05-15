@@ -2,6 +2,7 @@ package by.remprofi.repository;
 
 import by.remprofi.domain.User;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,12 +12,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
+//bean id=userRepositoryImpl   class=UserRepositoryImpl
+//@Component
+
 public class UserRepositoryImpl implements UserRepository {
 
-    public static final String POSTRGES_DRIVER_NAME = "org.postgresql.Driver";
+    public static final String POSTGRES_DRIVER_NAME = "org.postgresql.Driver";
     public static final String DATABASE_URL = "jdbc:postgresql://localhost:";
     public static final int DATABASE_PORT = 5432;
-    public static final String DATABASE_NAME = "/apptest";
+    public static final String DATABASE_NAME = "/car_rental";
     public static final String DATABASE_LOGIN = "postgres";
     public static final String DATABASE_PASSWORD = "root";
 
@@ -76,7 +81,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     private void registerDriver() {
         try {
-            Class.forName(POSTRGES_DRIVER_NAME);
+            Class.forName(POSTGRES_DRIVER_NAME);
         } catch (ClassNotFoundException e) {
             System.err.println("JDBC Driver Cannot be loaded!");
             throw new RuntimeException("JDBC Driver Cannot be loaded!");

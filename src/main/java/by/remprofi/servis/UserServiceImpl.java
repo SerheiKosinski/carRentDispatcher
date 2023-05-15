@@ -2,13 +2,26 @@ package by.remprofi.servis;
 
 import by.remprofi.domain.User;
 import by.remprofi.repository.UserRepository;
-import by.remprofi.repository.UserRepositoryImpl;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+//id = userServiceImpl
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository userRepository = new UserRepositoryImpl();
+  ///  @Autowired
+//    @Qualifier("userSecondRepositoryImpl")
+
+//    @Inject //JSR-330
+//    @Named("userRepositoryImpl")
+//    @Named("userRepositoryImpl")
+
+    private final UserRepository userRepository;
+
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public User findOne(Long id) {
@@ -24,7 +37,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User create(User object) {
         /*Validation layer*/
-        if (object.getDrivingLicense() > 8088) {
+        if (object.getDrivingLicense() > 80) {
             throw new RuntimeException("Something wrong!");
         }
 

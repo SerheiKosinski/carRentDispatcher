@@ -13,8 +13,6 @@
             <url-pattern>/FrontController</url-pattern>
         </servlet-mapping>
 
-    <!--    localhost:8080/application/FrontController-->
-    <!--    https://kalevich.com/application/FrontController-->
 
     <servlet>
         <servlet-name>HelloWeb</servlet-name>
@@ -56,14 +54,7 @@
         <url-pattern>/Bye</url-pattern>
     </servlet-mapping>
 
-    <!--    localhost:8080/application/bye-->
+
 
 </web-app>
 
-        <!--Tomcat -> webapp -> myapp.war -> myapp ->-->
-        <!--META-INF-->
-        <!--WEB-INF (закрытый доступ, напрямую не вытянуть) -> web.xml -> localhost:8080/myapp/hello-->
-        <!--index.html || index.jsp-->
-
-        <!--Serlet = class that operate with http-->
-        <!--Servlet = java class || jsp (.jsp -> .java -> .class -> executing)-->

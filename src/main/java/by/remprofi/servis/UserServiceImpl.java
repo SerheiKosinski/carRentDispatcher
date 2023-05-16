@@ -2,6 +2,7 @@ package by.remprofi.servis;
 
 import by.remprofi.domain.User;
 import by.remprofi.repository.UserRepository;
+import by.remprofi.util.RandomValuesGenerator;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 //id = userServiceImpl
 public class UserServiceImpl implements UserService {
 
-  ///  @Autowired
+//    @Autowired
 //    @Qualifier("userSecondRepositoryImpl")
 
 //    @Inject //JSR-330
@@ -19,10 +20,12 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private final RandomValuesGenerator randomValuesGenerator;
 
+    public UserServiceImpl(UserRepository userRepository, RandomValuesGenerator randomValuesGenerator) {
+        this.userRepository = userRepository;
+        this.randomValuesGenerator = randomValuesGenerator;
+    }
     @Override
     public User findOne(Long id) {
         return null;

@@ -1,7 +1,11 @@
 package by.remprofi.repository;
 
+import by.remprofi.configuration.DatabaseProperties;
 import by.remprofi.domain.User;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -12,25 +16,26 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static by.remprofi.repository.columns.UserColumns.DRIVING_L;
+import static by.remprofi.repository.columns.UserColumns.ID;
+import static by.remprofi.repository.columns.UserColumns.NAME;
+import static by.remprofi.repository.columns.UserColumns.PASS_N;
+import static by.remprofi.repository.columns.UserColumns.PASS_S;
+import static by.remprofi.repository.columns.UserColumns.SURNAME;
+
 @Repository
+@RequiredArgsConstructor
+@Primary
+
+
 //bean id=userRepositoryImpl   class=UserRepositoryImpl
 //@Component
 
 public class UserRepositoryImpl implements UserRepository {
 
-    public static final String POSTGRES_DRIVER_NAME = "org.postgresql.Driver";
-    public static final String DATABASE_URL = "jdbc:postgresql://localhost:";
-    public static final int DATABASE_PORT = 5432;
-    public static final String DATABASE_NAME = "/car_rental";
-    public static final String DATABASE_LOGIN = "postgres";
-    public static final String DATABASE_PASSWORD = "root";
+    private final DatabaseProperties properties;
+    private final Logger logger = Logger.getLogger(UserRepositoryImpl.class);
 
-    private static final String ID = "id";
-    private static final String NAME = "name";
-    private static final String SURNAME = "surname";
-    private static final String PASS_N = "passport_number";
-    private static final String PASS_S = "passport_serial";
-    private static final String DRIVING_L = "driving_license";
 
 
     @Override
@@ -39,6 +44,9 @@ public class UserRepositoryImpl implements UserRepository {
         /*
          * 1) Driver Manager - getting connection from DB
          * */
+        logger.info("Start of findAll method");
+
+
 
         final String findAllQuery = "select * from users order by id desc";
 
@@ -52,10 +60,15 @@ public class UserRepositoryImpl implements UserRepository {
 
             while (rs.next()) {
                 result.add(parseResultSet(rs));
+
+                logger.info("End of findAll method");
+
+
             }
             return result;
         } catch (SQLException e) {
-            System.err.println(e.getMessage());
+            logger.error(e.getMessage(), e);
+
             throw new RuntimeException("SQL Issues!");
         }
     }
@@ -66,7 +79,7 @@ public class UserRepositoryImpl implements UserRepository {
 
         try {
             user = new User();
-            user.setId(rs.getLong(ID)); //1 or id
+            user.setId(rs.getLong(ID));
             user.setName(rs.getString(NAME));
             user.setSurname(rs.getString(SURNAME));
             user.setPassportNumber(rs.getLong(PASS_N));
@@ -81,7 +94,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     private void registerDriver() {
         try {
-            Class.forName(POSTGRES_DRIVER_NAME);
+            Class.forName(properties.getDriverName());
         } catch (ClassNotFoundException e) {
             System.err.println("JDBC Driver Cannot be loaded!");
             throw new RuntimeException("JDBC Driver Cannot be loaded!");
@@ -89,9 +102,9 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     private Connection getConnection() {
-        String jdbcURL = StringUtils.join(DATABASE_URL, DATABASE_PORT, DATABASE_NAME);
+        String jdbcURL = StringUtils.join(properties.getUrl(), properties.getPort(), properties.getName());
         try {
-            return DriverManager.getConnection(jdbcURL, DATABASE_LOGIN, DATABASE_PASSWORD);
+            return DriverManager.getConnection(jdbcURL, properties.getLogin(), properties.getPassword());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

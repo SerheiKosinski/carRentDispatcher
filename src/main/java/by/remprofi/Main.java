@@ -1,5 +1,6 @@
 package by.remprofi;
 
+import by.remprofi.configuration.DatabaseProperties;
 import by.remprofi.domain.User;
 import by.remprofi.repository.UserRepository;
 import by.remprofi.repository.UserRepositoryImpl;
@@ -13,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        UserRepository userRepository = new UserRepositoryImpl();
+        UserRepository userRepository = new UserRepositoryImpl(new DatabaseProperties());
 
         List<User> all = userRepository.findAll();
 

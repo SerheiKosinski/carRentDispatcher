@@ -1,5 +1,6 @@
 package by.remprofi.servis;
 
+import by.remprofi.configuration.DatabaseProperties;
 import by.remprofi.domain.User;
 import by.remprofi.repository.UserRepository;
 import by.remprofi.repository.UserRepositoryImpl;
@@ -10,8 +11,8 @@ import java.util.Map;
 
 public class UserAggServiceImpl implements UserAggregationService {
 
-    private final UserRepository userRepository = new UserRepositoryImpl();
- //   private final UserService userService = new UserServiceImpl();
+    private final UserRepository userRepository = new UserRepositoryImpl(new DatabaseProperties());
+
 
     @Override
     public Map<String, Object> getStats() {

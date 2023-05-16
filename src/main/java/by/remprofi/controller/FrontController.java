@@ -1,10 +1,12 @@
 package by.remprofi.controller;
 
 
+import by.remprofi.configuration.DatabaseProperties;
 import by.remprofi.domain.User;
 import by.remprofi.repository.UserRepositoryImpl;
 import by.remprofi.servis.UserService;
 import by.remprofi.servis.UserServiceImpl;
+import by.remprofi.util.RandomValuesGenerator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,7 +20,8 @@ import java.util.stream.Collectors;
 public class FrontController extends HttpServlet {
 
 
-    private final UserService userService = new UserServiceImpl(new UserRepositoryImpl());
+
+    private final UserService userService = new UserServiceImpl(new UserRepositoryImpl(new DatabaseProperties()), new RandomValuesGenerator());
 
 
     @Override

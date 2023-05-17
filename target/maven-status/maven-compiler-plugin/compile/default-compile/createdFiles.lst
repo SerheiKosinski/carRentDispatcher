@@ -7,8 +7,8 @@ by\remprofi\repository\UserRepositoryJdbcTemplateImpl.class
 by\remprofi\repository\CRUDRepository.class
 by\remprofi\servis\UserServiceImpl.class
 by\remprofi\configuration\ApplicationConfig.class
-by\remprofi\servis\SpringTest.class
 by\remprofi\servis\UserAggServiceImpl.class
+by\remprofi\SpringTest.class
 by\remprofi\controller\FrontController.class
 by\remprofi\listeners\StartupCustomListener.class
 by\remprofi\repository\UserRepositoryImpl.class

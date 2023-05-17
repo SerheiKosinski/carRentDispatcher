@@ -35,9 +35,9 @@ ${userName}
                 <td>${user.id}</td>
                 <td>${user.name}</td>
                 <td>${user.surname}</td>
-                <td>${user.passport_number}</td>
-                <td>${user.passport_serial}</td>
-                <td>${user.driving_license}</td>
+                <td>${user.passportNumber}</td>
+                <td>${user.passportSerial}</td>
+                <td>${user.drivingLicense}</td>
                 <td><button>Edit</button></td>
                 <td><button>Delete</button></td>
             </tr>

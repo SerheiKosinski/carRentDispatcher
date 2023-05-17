@@ -1,12 +1,10 @@
-package by.remprofi.servis;
+package by.remprofi;
 
 import by.remprofi.repository.UserRepository;
+import by.remprofi.servis.UserService;
 import by.remprofi.util.RandomValuesGenerator;
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-
-
 
 public class SpringTest {
 

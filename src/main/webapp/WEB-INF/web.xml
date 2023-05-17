@@ -4,15 +4,17 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-        <servlet>
-            <servlet-name>MainServlet</servlet-name>
-            <servlet-class>by.remprofi.controller.FrontController</servlet-class>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>MainServlet</servlet-name>
-            <url-pattern>/FrontController</url-pattern>
-        </servlet-mapping>
+    <servlet>
+        <servlet-name>MainServlet</servlet-name>
+        <servlet-class>by.remprofi.controller.FrontController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainServlet</servlet-name>
+        <url-pattern>/FrontController</url-pattern>
+    </servlet-mapping>
 
+    <!--    localhost:8080/application/FrontController-->
+    <!--    https://kalevich.com/application/FrontController-->
 
     <servlet>
         <servlet-name>HelloWeb</servlet-name>
@@ -20,9 +22,19 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>HelloWeb</servlet-name>
-        <url-pattern>/Hello</url-pattern>
+        <url-pattern>/hello</url-pattern>
     </servlet-mapping>
 
+    <!--    localhost:8080/application/hello-->
+
+    <servlet>
+        <servlet-name>ByeByeWeb</servlet-name>
+        <jsp-file>/WEB-INF/jsp/bye.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ByeByeWeb</servlet-name>
+        <url-pattern>/bye</url-pattern>
+    </servlet-mapping>
 
     <listener>
         <listener-class>by.remprofi.listeners.StartupCustomListener</listener-class>
@@ -38,23 +50,10 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-
     <!--    localhost:8080/application/bye-->
     <session-config>
         <session-timeout>10</session-timeout>
     </session-config>
-
-
-    <servlet>
-        <servlet-name>ByeByeWeb</servlet-name>
-        <jsp-file>/WEB-INF/jsp/bye.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ByeByeWeb</servlet-name>
-        <url-pattern>/Bye</url-pattern>
-    </servlet-mapping>
-
-
 
 </web-app>
 

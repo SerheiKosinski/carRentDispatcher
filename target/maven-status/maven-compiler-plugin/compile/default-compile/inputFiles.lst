@@ -3,7 +3,6 @@ C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\controller
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\repository\columns\UserColumns.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\filters\CharsetFilter.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\configuration\ApplicationConfig.java
-C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\servis\SpringTest.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\domain\User.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\repository\UserRepositoryImpl.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\servis\UserService.java
@@ -13,6 +12,7 @@ C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\listeners\
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\repository\UserRepository.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\util\RandomValuesGenerator.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\servis\UserAggregationService.java
+C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\SpringTest.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\repository\UserRepositoryJdbcTemplateImpl.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\Main.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\repository\CRUDRepository.java

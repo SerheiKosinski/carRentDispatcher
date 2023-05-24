@@ -14,4 +14,7 @@ public interface UserService {
     User update(User object);
 
     void delete(Long id);
+
+    List<User> search(String query, Double rating);
 }
+

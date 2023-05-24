@@ -11,16 +11,9 @@ import javax.sql.DataSource;
 
 @Configuration
 public class ApplicationConfig {
-///kjfgakj
 
     @Bean
-    //@Scope("singleton")
-    //@Scope("prototype")
-    public RandomValuesGenerator getRandomGenerator(
-//            @Autowired @Qualifier("userRepositoryImpl") UserRepository userRepository) { - example of autowiring
-//            UserRepository userRepository) { - example of autowiring
-    ) {
-
+    public RandomValuesGenerator getRandomGenerator() {
         return new RandomValuesGenerator();
     }
 

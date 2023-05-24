@@ -1,11 +1,12 @@
-package by.remprofi.repository;
+package by.remprofi.repository.impl;
 
 import by.remprofi.configuration.DatabaseProperties;
 import by.remprofi.domain.User;
+import by.remprofi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.context.annotation.Primary;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -16,21 +17,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static by.remprofi.repository.columns.UserColumns.BIRTH_DATE;
 import static by.remprofi.repository.columns.UserColumns.DRIVING_L;
 import static by.remprofi.repository.columns.UserColumns.ID;
 import static by.remprofi.repository.columns.UserColumns.NAME;
 import static by.remprofi.repository.columns.UserColumns.PASS_N;
 import static by.remprofi.repository.columns.UserColumns.PASS_S;
+import static by.remprofi.repository.columns.UserColumns.RATING;
 import static by.remprofi.repository.columns.UserColumns.SURNAME;
 
 @Repository
 @RequiredArgsConstructor
-@Primary
-
-
-//bean id=userRepositoryImpl   class=UserRepositoryImpl
-//@Component
-
+@Order(0)
 public class UserRepositoryImpl implements UserRepository {
 
     private final DatabaseProperties properties;
@@ -46,8 +44,6 @@ public class UserRepositoryImpl implements UserRepository {
          * */
         logger.info("Start of findAll method");
 
-
-
         final String findAllQuery = "select * from users order by id desc";
 
         List<User> result = new ArrayList<>();
@@ -62,7 +58,6 @@ public class UserRepositoryImpl implements UserRepository {
                 result.add(parseResultSet(rs));
 
                 logger.info("End of findAll method");
-
 
             }
             return result;
@@ -82,6 +77,8 @@ public class UserRepositoryImpl implements UserRepository {
             user.setId(rs.getLong(ID));
             user.setName(rs.getString(NAME));
             user.setSurname(rs.getString(SURNAME));
+            user.setBirthDate(rs.getTimestamp(BIRTH_DATE));
+            user.setRating(rs.getDouble(RATING));
             user.setPassportNumber(rs.getLong(PASS_N));
             user.setPassportSerial(rs.getString(PASS_S));
             user.setDrivingLicense(rs.getLong(DRIVING_L));
@@ -112,16 +109,19 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User findOne(Long id) {
-        return null;
+
+        return findAll().stream().findFirst().get();
     }
 
     @Override
     public User create(User object) {
+
         return null;
     }
 
     @Override
     public User update(User object) {
+
         return null;
     }
 
@@ -131,7 +131,12 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public void searchUser() {
+    public List<User> searchUser(String query, Double rating) {
+        return null;
+    }
 
+    @Override
+    public boolean support(String param) {
+        return param.equalsIgnoreCase("jdbc");
     }
 }

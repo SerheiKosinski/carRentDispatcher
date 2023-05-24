@@ -3,7 +3,7 @@ package by.remprofi;
 import by.remprofi.configuration.DatabaseProperties;
 import by.remprofi.domain.User;
 import by.remprofi.repository.UserRepository;
-import by.remprofi.repository.UserRepositoryImpl;
+import by.remprofi.repository.impl.UserRepositoryImpl;
 
 import java.util.List;
 

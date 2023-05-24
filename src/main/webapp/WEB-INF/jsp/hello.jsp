@@ -24,6 +24,9 @@ ${userName}
             <td>User Id</td>
             <td>User Name</td>
             <td>User Surname</td>
+            <td>Full Name</td>
+            <td>Birth date</td>
+            <td>Rating</td>
             <td>Passport Number</td>
             <td>Passport Serial</td>
             <td>Driving License</td>
@@ -35,6 +38,9 @@ ${userName}
                 <td>${user.id}</td>
                 <td>${user.name}</td>
                 <td>${user.surname}</td>
+                <td>${user.fullName}</td>
+                <td>${user.birthDate}</td>
+                <td>${user.rating}</td>
                 <td>${user.passportNumber}</td>
                 <td>${user.passportSerial}</td>
                 <td>${user.drivingLicense}</td>

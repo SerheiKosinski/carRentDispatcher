@@ -3,7 +3,7 @@ package by.remprofi.controller;
 
 import by.remprofi.configuration.DatabaseProperties;
 import by.remprofi.domain.User;
-import by.remprofi.repository.UserRepositoryImpl;
+import by.remprofi.repository.impl.UserRepositoryImpl;
 import by.remprofi.servis.UserService;
 import by.remprofi.servis.UserServiceImpl;
 import by.remprofi.util.RandomValuesGenerator;

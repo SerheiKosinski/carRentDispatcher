@@ -5,9 +5,11 @@ import by.remprofi.domain.User;
 
 import java.util.List;
 
-public interface UserRepository extends CRUDRepository <Long, User> {
 
-    void searchUser();
+public interface UserRepository extends CRUDRepository<Long, User> {
 
-    List<User> findAll();
+
+    List<User> searchUser(String query, Double rating);
+
+    boolean support(String param);
 }

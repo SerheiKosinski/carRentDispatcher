@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-//id = userServiceImpl
 public class UserServiceImpl implements UserService {
 
 //    @Autowired
@@ -20,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
-    private final RandomValuesGenerator randomValuesGenerator;
+    protected final RandomValuesGenerator randomValuesGenerator;
 
     public UserServiceImpl(UserRepository userRepository, RandomValuesGenerator randomValuesGenerator) {
         this.userRepository = userRepository;
@@ -28,7 +27,7 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public User findOne(Long id) {
-        return null;
+        return userRepository.findOne(id);
     }
 
     @Override
@@ -39,11 +38,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User create(User object) {
-        /*Validation layer*/
-        if (object.getDrivingLicense() > 80) {
-            throw new RuntimeException("Something wrong!");
-        }
-
         return userRepository.create(object);
     }
 
@@ -55,5 +49,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void delete(Long id) {
 
+    }
+
+    @Override
+    public List<User> search(String query, Double rating) {
+        return userRepository.searchUser(query.toLowerCase(), rating);
     }
 }

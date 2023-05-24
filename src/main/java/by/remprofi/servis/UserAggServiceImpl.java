@@ -3,7 +3,7 @@ package by.remprofi.servis;
 import by.remprofi.configuration.DatabaseProperties;
 import by.remprofi.domain.User;
 import by.remprofi.repository.UserRepository;
-import by.remprofi.repository.UserRepositoryImpl;
+import by.remprofi.repository.impl.UserRepositoryImpl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +19,7 @@ public class UserAggServiceImpl implements UserAggregationService {
 
         List<User> users = userRepository.findAll();
         User one = userRepository.findOne(2L);
-        userRepository.searchUser();
+
 
         Map<String, Object> resultMap = new HashMap<>();
 

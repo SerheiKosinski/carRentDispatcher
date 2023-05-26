@@ -1,17 +1,20 @@
 package by.remprofi.servis;
 
-import by.remprofi.configuration.DatabaseProperties;
 import by.remprofi.domain.User;
 import by.remprofi.repository.UserRepository;
-import by.remprofi.repository.impl.UserRepositoryImpl;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Service
+@RequiredArgsConstructor
+
 public class UserAggServiceImpl implements UserAggregationService {
 
-    private final UserRepository userRepository = new UserRepositoryImpl(new DatabaseProperties());
+    private final UserRepository userRepository;
 
 
     @Override

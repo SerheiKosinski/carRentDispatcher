@@ -1,20 +1,31 @@
-package by.remprofi.controller.mvc;
+package by.remprofi.controller.rest;
 
+import by.remprofi.configuration.AmazonProperties;
+import by.remprofi.configuration.GoogleConfig;
 import by.remprofi.domain.User;
 import by.remprofi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/spring")
 @RequiredArgsConstructor
 public class SpringInvestigationController {
-
     private final List<UserRepository> repositoryList;
+
+    private final AmazonProperties amazonProperties;
+
+    private final GoogleConfig googleConfig;
+
+
 
     @GetMapping("/info")
     public void getSpringInfo() {
@@ -26,6 +37,15 @@ public class SpringInvestigationController {
                 }
             }
         }
+    }
 
+    @GetMapping("/info/yml")
+    public ResponseEntity<Map<String, Object>> getCloudsConfigs() {
+
+        Map<String, Object> result = new LinkedHashMap<>();
+        result.put("amazon", amazonProperties.toString());
+        result.put("google", googleConfig.toString());
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

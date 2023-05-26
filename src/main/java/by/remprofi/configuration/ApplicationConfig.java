@@ -1,7 +1,6 @@
 package by.remprofi.configuration;
 
 import by.remprofi.util.RandomValuesGenerator;
-import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,17 +26,6 @@ public class ApplicationConfig {
         return new NamedParameterJdbcTemplate(dataSource);
     }
 
-    @Bean
-    public DataSource hikariDatasource(DatabaseProperties properties) {
-        HikariDataSource hikariDataSource = new HikariDataSource();
 
-        hikariDataSource.setUsername(properties.getLogin());
-        hikariDataSource.setPassword(properties.getPassword());
-        hikariDataSource.setDriverClassName(properties.getDriverName());
-        hikariDataSource.setMaximumPoolSize(properties.getPoolSize());
-        hikariDataSource.setJdbcUrl(properties.getJdbcUrl());
-
-        return hikariDataSource;
-    }
 
 }

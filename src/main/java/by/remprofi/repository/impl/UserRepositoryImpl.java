@@ -1,21 +1,17 @@
 package by.remprofi.repository.impl;
 
-import by.remprofi.configuration.DatabaseProperties;
+import by.remprofi.domain.Role;
 import by.remprofi.domain.User;
 import by.remprofi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static by.remprofi.repository.columns.UserColumns.BIRTH_DATE;
 import static by.remprofi.repository.columns.UserColumns.DRIVING_L;
@@ -31,7 +27,6 @@ import static by.remprofi.repository.columns.UserColumns.SURNAME;
 @Order(0)
 public class UserRepositoryImpl implements UserRepository {
 
-    private final DatabaseProperties properties;
     private final Logger logger = Logger.getLogger(UserRepositoryImpl.class);
 
 
@@ -42,7 +37,7 @@ public class UserRepositoryImpl implements UserRepository {
         /*
          * 1) Driver Manager - getting connection from DB
          * */
-        logger.info("Start of findAll method");
+   /*     logger.info("Start of findAll method");
 
         final String findAllQuery = "select * from users order by id desc";
 
@@ -65,7 +60,8 @@ public class UserRepositoryImpl implements UserRepository {
             logger.error(e.getMessage(), e);
 
             throw new RuntimeException("SQL Issues!");
-        }
+        }*/
+        return  null;
     }
 
     private User parseResultSet(ResultSet rs) {
@@ -89,7 +85,7 @@ public class UserRepositoryImpl implements UserRepository {
         return user;
     }
 
-    private void registerDriver() {
+ /*  private void registerDriver() {
         try {
             Class.forName(properties.getDriverName());
         } catch (ClassNotFoundException e) {
@@ -105,7 +101,7 @@ public class UserRepositoryImpl implements UserRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
 
     @Override
     public User findOne(Long id) {
@@ -138,5 +134,15 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public boolean support(String param) {
         return param.equalsIgnoreCase("jdbc");
+
+    }
+    @Override
+    public List<Role> getUserAuthorities(Long userId) {
+        return null;
+    }
+
+    @Override
+    public Optional<User> findByEmail(String email) {
+        return Optional.empty();
     }
 }

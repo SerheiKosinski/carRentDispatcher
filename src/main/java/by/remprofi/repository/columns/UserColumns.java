@@ -10,4 +10,8 @@ public interface UserColumns {
      String PASS_N = "passport_number";
      String PASS_S = "passport_serial";
      String DRIVING_L = "driving_license";
+     String EMAIL = "email";
+     String PASSWORD = "user_password";
 }
+
+

@@ -1,7 +1,9 @@
 package by.remprofi.repository.impl;
 
+import by.remprofi.domain.Role;
 import by.remprofi.domain.User;
 import by.remprofi.repository.UserRepository;
+import by.remprofi.repository.rowmapper.RoleRowMapper;
 import by.remprofi.repository.rowmapper.UserRowMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
@@ -11,6 +13,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Primary
@@ -24,7 +27,7 @@ public class UserRepositoryJdbcTemplateImpl implements UserRepository {
 
     private final UserRowMapper userRowMapper;
 
-
+    private final RoleRowMapper roleRowMapper;
 
     @Override
     public User findOne(Long id) {
@@ -70,6 +73,26 @@ public class UserRepositoryJdbcTemplateImpl implements UserRepository {
     @Override
     public boolean support(String param) {
         return param.equalsIgnoreCase("jdbctemplate");
+    }
+
+    @Override
+    public List<Role> getUserAuthorities(Long userId) {
+        final String sqlQueryAuthorities =
+                "select * " +
+                        " from roles " +
+                        " inner join users u on u.id = roles.user_id" +
+                        " where user_id = " + userId +
+                        " order by roles.id desc";
+
+        return jdbcTemplate.query(sqlQueryAuthorities, roleRowMapper);
+    }
+
+    @Override
+    public Optional<User> findByEmail(String email) {
+
+        User user = jdbcTemplate.queryForObject("select * from users where email = '" + email + "'", userRowMapper);
+
+        return Optional.of(user);
     }
 }
 

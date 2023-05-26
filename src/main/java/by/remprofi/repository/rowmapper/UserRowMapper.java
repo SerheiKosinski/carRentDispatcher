@@ -9,9 +9,11 @@ import java.sql.SQLException;
 
 import static by.remprofi.repository.columns.UserColumns.BIRTH_DATE;
 import static by.remprofi.repository.columns.UserColumns.DRIVING_L;
+import static by.remprofi.repository.columns.UserColumns.EMAIL;
 import static by.remprofi.repository.columns.UserColumns.FULL_NAME;
 import static by.remprofi.repository.columns.UserColumns.ID;
 import static by.remprofi.repository.columns.UserColumns.NAME;
+import static by.remprofi.repository.columns.UserColumns.PASSWORD;
 import static by.remprofi.repository.columns.UserColumns.PASS_N;
 import static by.remprofi.repository.columns.UserColumns.PASS_S;
 import static by.remprofi.repository.columns.UserColumns.RATING;
@@ -35,6 +37,9 @@ public class UserRowMapper implements RowMapper<User> {
                     .passportNumber(rs.getLong(PASS_N))
                     .passportSerial(rs.getString(PASS_S))
                     .drivingLicense(rs.getLong(DRIVING_L))
+                    .email(rs.getString(EMAIL))
+                    .password(rs.getString(PASSWORD))
+
                     .build();
 
         } catch (SQLException e) {

@@ -9,40 +9,25 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.sql.Timestamp;
 
-
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+@Data
+@Builder
+public class Role {
 
     private Long id;
 
-    private String name;
+    private SystemRoles systemRole = SystemRoles.ROLE_USER;
 
-    private String surname;
+    private Long userId;
 
-    private String fullName;
+    private Timestamp created;
 
-    private Timestamp birthDate;
-
-    private Double rating;
-
-    private Long passportNumber;
-
-    private String passportSerial;
-
-    private Long drivingLicense;
-
-    private String email;
-
-    private String password;
-
+    private Timestamp changed;
 
 
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE);
     }
-
 }

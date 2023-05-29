@@ -26,7 +26,6 @@ public class UserRestController {
         List<User> users = userService.findAll();
         return new ResponseEntity<>(users, HttpStatus.OK);
 
-     //   throw new RuntimeException("Huston, we have a problem here!");
     }
 
     @PostMapping
@@ -49,18 +48,5 @@ public class UserRestController {
     }
 
 
-    //Domain - Car
-    //GET + /rest/cars - findAll
-    //GET + /rest/cars/{id} - findOne
-    //POST + /rest/cars - create object
-    //PUT + /rest/cars - update object
-    //DELETE + /rest/cars - update object
-
-    //PATCH + /rest/cars  - partial update of object
-    //GET + /rest/cars/search
-    //GET + /rest/cars/search
-    //PUT + /rest/cars/calculate
-    //query - поисковой запрос
-    //limit/offset = page = ограничение на число выводимых объектов
 
 }

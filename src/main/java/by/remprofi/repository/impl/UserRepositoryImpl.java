@@ -34,33 +34,6 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public List<User> findAll() {
 
-        /*
-         * 1) Driver Manager - getting connection from DB
-         * */
-   /*     logger.info("Start of findAll method");
-
-        final String findAllQuery = "select * from users order by id desc";
-
-        List<User> result = new ArrayList<>();
-
-        registerDriver();
-        try (Connection connection = getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet rs = statement.executeQuery(findAllQuery)
-        ) {
-
-            while (rs.next()) {
-                result.add(parseResultSet(rs));
-
-                logger.info("End of findAll method");
-
-            }
-            return result;
-        } catch (SQLException e) {
-            logger.error(e.getMessage(), e);
-
-            throw new RuntimeException("SQL Issues!");
-        }*/
         return  null;
     }
 
@@ -85,23 +58,6 @@ public class UserRepositoryImpl implements UserRepository {
         return user;
     }
 
- /*  private void registerDriver() {
-        try {
-            Class.forName(properties.getDriverName());
-        } catch (ClassNotFoundException e) {
-            System.err.println("JDBC Driver Cannot be loaded!");
-            throw new RuntimeException("JDBC Driver Cannot be loaded!");
-        }
-    }
-
-    private Connection getConnection() {
-        String jdbcURL = StringUtils.join(properties.getUrl(), properties.getPort(), properties.getName());
-        try {
-            return DriverManager.getConnection(jdbcURL, properties.getLogin(), properties.getPassword());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
 
     @Override
     public User findOne(Long id) {

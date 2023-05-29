@@ -7,14 +7,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.1.RELEASE</version>
+        <version>2.7.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
 
     <groupId>by.remprofi</groupId>
     <artifactId>carRentDispatcher</artifactId>
-    <version>1.5.2-SNAPSHOT</version>
+    <version>1.7-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -57,7 +57,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -148,6 +147,11 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
@@ -157,7 +161,6 @@
             <artifactId>jaxb-api</artifactId>
             <scope>runtime</scope>
         </dependency>
-
 
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
@@ -175,6 +178,28 @@
         <dependency>
             <groupId>org.glassfish.jaxb</groupId>
             <artifactId>jaxb-runtime</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>9.16.1</version>
         </dependency>
 
     </dependencies>

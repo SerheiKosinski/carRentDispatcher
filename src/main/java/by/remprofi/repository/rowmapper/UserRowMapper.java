@@ -39,7 +39,6 @@ public class UserRowMapper implements RowMapper<User> {
                     .drivingLicense(rs.getLong(DRIVING_L))
                     .email(rs.getString(EMAIL))
                     .password(rs.getString(PASSWORD))
-
                     .build();
 
         } catch (SQLException e) {

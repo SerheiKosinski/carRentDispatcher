@@ -40,12 +40,6 @@ WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         return NoOpPasswordEncoder.getInstance();
     }
 
-//    @Bean
-//    public AuthenticationTokenFilter authenticationTokenFilterBean(AuthenticationManager authenticationManager) throws Exception {
-//        AuthenticationTokenFilter authenticationTokenFilter = new AuthenticationTokenFilter(tokenUtils, userDetailsService);
-//        authenticationTokenFilter.setAuthenticationManager(authenticationManager);
-//        return authenticationTokenFilter;
-//    }
 
     @Bean
     @Override
@@ -64,28 +58,14 @@ WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                /*For swagger access only*/
-//                .antMatchers("/v2/api-docs", "/configuration/ui/**", "/swagger-resources/**", "/configuration/security/**", "/swagger-ui.html", "/webjars/**").permitAll()
-//                .antMatchers("/actuator/**").permitAll()
-//                .antMatchers(HttpMethod.GET, "/swagger-ui.html#").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers("/guest/**").permitAll()
                 .antMatchers("/registration/**").permitAll()
                 .antMatchers("/auth/**").permitAll()
-                //.antMatchers("/rest/**").hasAnyRole("ADMIN", "USER", "MODERATOR")
                 .antMatchers("/rest/**").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated();
 
-        // Custom JWT based authentication
-//        httpSecurity
-//                .addFilterBefore(authenticationTokenFilterBean(authenticationManagerBean()), UsernamePasswordAuthenticationFilter.class);
     }
 
-    //For swagger access only
-//    @Override
-//    public void configure(WebSecurity web) throws Exception {
-//        web.ignoring()
-//                .antMatchers("/v2/api-docs", "/configuration/ui/**", "/swagger-resources/**", "/configuration/security/**", "/swagger-ui.html", "/webjars/**");
-//    }
 }

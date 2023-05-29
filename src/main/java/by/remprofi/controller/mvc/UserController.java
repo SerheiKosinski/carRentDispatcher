@@ -23,10 +23,6 @@ import java.util.stream.Collectors;
 @RequestMapping("/users")
 public class UserController {
 
-//    GET + /users = findAllUsers
-//    GET + /users/1 = findUserById
-//    POST + /users = createUser
-
     private static final Logger log = Logger.getLogger(UserController.class);
 
     private final UserService userService;
@@ -85,7 +81,7 @@ public class UserController {
         try {
             parsedRating = Double.parseDouble(criteria.getRating());
         } catch (NumberFormatException e) {
-            log.error("User param weight: " + criteria.getRating() + " cannot be parsed to Double", e);
+            log.error("User param rating: " + criteria.getRating() + " cannot be parsed to Double", e);
             parsedRating = 50D;
         }
 

@@ -65,7 +65,7 @@ public class HibernateCars {
     @Column(name = "is_deleted")
     private Boolean deleted;
 
-    @ManyToOne
+   @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonBackReference
     private HibernateUser user;

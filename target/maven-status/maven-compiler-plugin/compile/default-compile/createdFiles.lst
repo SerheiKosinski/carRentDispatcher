@@ -27,7 +27,6 @@ by\remprofi\controller\rest\HibernateUserController.class
 by\remprofi\controller\rest\CarsController.class
 by\remprofi\domain\hibernate\HibernateCars$HibernateCarsBuilder.class
 by\remprofi\security\config\JWTConfiguration.class
-by\remprofi\domain\hibernate\HibernatePersonalDocument_.class
 by\remprofi\controller\requests\UserCreateRequest.class
 by\remprofi\domain\hibernate\HibernateCars.class
 by\remprofi\security\controller\AuthenticationController.class
@@ -35,7 +34,6 @@ by\remprofi\SpringTest.class
 by\remprofi\aspect\LoggingAspect.class
 by\remprofi\repository\rowmapper\RoleRowMapper.class
 by\remprofi\domain\User.class
-by\remprofi\domain\hibernate\HibernatePersonalDocument$HibernatePersonalDocumentBuilder.class
 by\remprofi\util\UserFieldsGenerator.class
 by\remprofi\configuration\HibernateConfiguration.class
 by\remprofi\repository\columns\UserColumns.class
@@ -48,7 +46,6 @@ by\remprofi\repository\hibernate\HibernateUserRepository.class
 by\remprofi\configuration\ApplicationConfig.class
 by\remprofi\security\config\WebSecurityConfiguration.class
 by\remprofi\controller\exceptions\ErrorMessage.class
-by\remprofi\domain\hibernate\HibernatePersonalDocument.class
 by\remprofi\controller\rest\RoleController.class
 by\remprofi\controller\rest\SpringInvestigationController.class
 by\remprofi\domain\DocumentType.class

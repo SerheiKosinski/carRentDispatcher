@@ -5,7 +5,6 @@ C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\filters\Ch
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\configuration\GoogleConfig.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\configuration\HibernateConfiguration.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\domain\User.java
-C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\domain\hibernate\HibernatePersonalDocument.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\security\provider\UserDetailsProvider.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\listeners\StartupCustomListener.java
 C:\Users\Sun\IdeaProjects\carRentDispatcher\src\main\java\by\remprofi\controller\rest\CarsController.java

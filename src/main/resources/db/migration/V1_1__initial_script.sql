@@ -40,8 +40,7 @@ create index tariff_tariff_name_index
 
 create table public.users
 (
-    id              bigint  default nextval('clients_id_seq'::regclass) not null
-        constraint users_pk
+    id              bigint
             primary key
         unique,
     name            varchar(200)                                        not null,
@@ -74,8 +73,6 @@ create index clients_surname_index
 create unique index users_id_uindex
     on public.users (id);
 
-create unique index users_id_uindex2
-    on public.users (id);
 
 create table public.technical_inspection
 (
@@ -163,7 +160,7 @@ create table public.employees
     id        bigserial
         primary key
         unique,
-    name      varchar(200) not null,
+    name    varchar(200) not null,
     surname   varchar(200) not null,
     job_title varchar(200) not null,
     created   timestamp(6) not null,
@@ -217,7 +214,7 @@ create table public.roles
 (
     id        bigserial
         primary key,
-    role_name varchar      not null,
+    role_name varchar(100) not null,
     user_id   bigint       not null
         constraint roles_users_id_fk
             references public.users
@@ -227,7 +224,7 @@ create table public.roles
 );
 
 alter table public.roles
-    owner to postgres;
+    owner to dev;
 
 create unique index roles_role_name_user_id_uindex
     on public.roles (role_name, user_id);

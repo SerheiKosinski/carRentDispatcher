@@ -119,7 +119,7 @@ public class HibernateUserRepositoryImpl implements HibernateUserRepository {
     }*/
 
     @Override
-    public List<HibernateUser> searchUser(String query, Double weight) {
+    public List<HibernateUser> searchUser(String query, Double rating) {
         return null;
     }
 

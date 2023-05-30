@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface HibernateUserRepository extends
         CRUDRepository<Long, HibernateUser> {
 
-    List<HibernateUser> searchUser(String query, Double weight);
+    List<HibernateUser> searchUser(String query, Double rating);
 
     Optional<HibernateUser> findByEmail(String email);
 }

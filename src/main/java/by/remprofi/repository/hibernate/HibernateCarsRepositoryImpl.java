@@ -1,6 +1,6 @@
 package by.remprofi.repository.hibernate;
 
-import by.remprofi.domain.hibernate.HibernateCars;
+import by.remprofi.domain.hibernate.HiberCars;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -15,25 +15,25 @@ public class HibernateCarsRepositoryImpl implements HibernateCarsRepository {
     private final EntityManagerFactory entityManagerFactory;
 
     @Override
-    public HibernateCars findOne(Long id) {
+    public HiberCars findOne(Long id) {
         return null;
     }
 
     @Override
-    public List<HibernateCars> findAll() {
-        final String findAllHQL = "select c from HibernateCars c";
+    public List<HiberCars> findAll() {
+        final String findAllHQL = "select c from HiberCars c";
 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        return entityManager.createQuery(findAllHQL, HibernateCars.class).getResultList();
+        return entityManager.createQuery(findAllHQL, HiberCars.class).getResultList();
     }
 
     @Override
-    public HibernateCars create(HibernateCars object) {
+    public HiberCars create(HiberCars object) {
         return null;
     }
 
     @Override
-    public HibernateCars update(HibernateCars object) {
+    public HiberCars update(HiberCars object) {
         return null;
     }
 

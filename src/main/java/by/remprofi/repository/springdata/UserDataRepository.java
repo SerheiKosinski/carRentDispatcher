@@ -1,7 +1,7 @@
 package by.remprofi.repository.springdata;
 
 import by.remprofi.domain.Violations;
-import by.remprofi.domain.hibernate.HibernateUser;
+import by.remprofi.domain.hibernate.HiberUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -14,24 +14,24 @@ import java.util.List;
 
 
 public interface UserDataRepository extends
-        JpaRepository<HibernateUser, Long>,
-        PagingAndSortingRepository<HibernateUser, Long>,
-        CrudRepository<HibernateUser, Long> {
+        JpaRepository<HiberUser, Long>,
+        PagingAndSortingRepository<HiberUser, Long>,
+        CrudRepository<HiberUser, Long> {
 
-    List<HibernateUser> findByIdAndBirthDateAndSurname(Long id, Timestamp birthDate, String surname);
+    List<HiberUser> findByIdAndBirthDateAndSurname(Long id, Timestamp birthDate, String surname);
 
-    List<HibernateUser> findByIdInAndViolationsAndFullNameOrderByRatingDescBirthDateAsc(List<Long> ids, Violations violations, String fullName);
+    List<HiberUser> findByIdInAndViolationsAndFullNameOrderByRatingDescBirthDateAsc(List<Long> ids, Violations violations, String fullName);
 
-    HibernateUser countByName(String name);
+    HiberUser countByName(String name);
 
     @Query(value = "select u.email, c.brand from users as u inner join cars c on u.id = c.user_id", nativeQuery = true)
     List<Object[]> findColumnsFromDifferentTables();
 
-    @Query("select u from HibernateUser u")
-    List<HibernateUser> findUsers();
+    @Query("select u from HiberUser u")
+    List<HiberUser> findUsers();
 
-    @Query(value = "select u from HibernateUser u where u.authenticationInfo.email = :email and u.surname = :surname")
-    List<HibernateUser> findByHQLQuery(String email, @Param("surname") String name);
+    @Query(value = "select u from HiberUser u where u.authenticationInfo.email = :email and u.surname = :surname")
+    List<HiberUser> findByHQLQuery(String email, @Param("surname") String name);
 
 
     @Modifying(flushAutomatically = true)

@@ -6,7 +6,7 @@ import by.remprofi.controller.requests.UserCreateRequest;
 import by.remprofi.controller.requests.UserUpdateRequest;
 import by.remprofi.domain.Violations;
 import by.remprofi.domain.hibernate.AuthenticationInfo;
-import by.remprofi.domain.hibernate.HibernateUser;
+import by.remprofi.domain.hibernate.HiberUser;
 import by.remprofi.exception.EntityNotFoundException;
 import by.remprofi.repository.springdata.UserDataRepository;
 import by.remprofi.util.UserFieldsGenerator;
@@ -40,7 +40,7 @@ public class UserDataController {
 
     @GetMapping
     public ResponseEntity<Object> getAllUsers() {
-        List<HibernateUser> users = repository.findAll();
+        List<HiberUser> users = repository.findAll();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
@@ -48,7 +48,7 @@ public class UserDataController {
     @GetMapping("/test")
     public ResponseEntity<Object> testSpringDataMethods() {
 
-        List<HibernateUser> result =
+        List<HiberUser> result =
                 repository.findByHQLQuery("Wilson444@wear.com", "Wilson");
 
         return new ResponseEntity<>(Collections.singletonMap("result", result), HttpStatus.OK);
@@ -68,7 +68,7 @@ public class UserDataController {
             throw new IllegalRequestException(result);
         }
 
-        HibernateUser hibernateUser = HibernateUser.builder()
+        HiberUser hiberUser = HiberUser.builder()
                 .name(request.getName())
                 .birthDate(request.getBirthDate())
                 .surname(request.getSurname())
@@ -80,20 +80,20 @@ public class UserDataController {
                 .drivingLicense(request.getDrivingLicense())
                 .build();
 
-        String generateEmail = fieldsGenerator.generateEmail(hibernateUser);
+        String generateEmail = fieldsGenerator.generateEmail(hiberUser);
         String generatePassword = fieldsGenerator.generatePassword();
         AuthenticationInfo info = new AuthenticationInfo(generateEmail, generatePassword);
 
-        hibernateUser.setAuthenticationInfo(info);
+        hiberUser.setAuthenticationInfo(info);
 
-        hibernateUser = repository.save(hibernateUser);
-        return new ResponseEntity<>(hibernateUser, HttpStatus.CREATED);
+        hiberUser = repository.save(hiberUser);
+        return new ResponseEntity<>(hiberUser, HttpStatus.CREATED);
     }
 
     @PutMapping
     public ResponseEntity<Object> updateUser(Principal principal, @RequestBody UserUpdateRequest request) {
 
-        HibernateUser one = repository.findById(request.getId()).orElseThrow(EntityNotFoundException::new);
+        HiberUser one = repository.findById(request.getId()).orElseThrow(EntityNotFoundException::new);
 
         one.setId(request.getId());
         one.setName(request.getName());
@@ -122,7 +122,7 @@ public class UserDataController {
             parsedRating = 50D;
         }
 
-        List<HibernateUser> searchList = Collections.emptyList();
+        List<HiberUser> searchList = Collections.emptyList();
 
         return new ResponseEntity<>(Collections.singletonMap("users", searchList), HttpStatus.OK);
     }

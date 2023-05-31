@@ -1,16 +1,16 @@
 package by.remprofi.repository.hibernate;
 
 
-import by.remprofi.domain.hibernate.HibernateUser;
+import by.remprofi.domain.hibernate.HiberUser;
 import by.remprofi.repository.CRUDRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface HibernateUserRepository extends
-        CRUDRepository<Long, HibernateUser> {
+        CRUDRepository<Long, HiberUser> {
 
-    List<HibernateUser> searchUser(String query, Double rating);
+    List<HiberUser> searchUser(String query, Double rating);
 
-    Optional<HibernateUser> findByEmail(String email);
+    Optional<HiberUser> findByEmail(String email);
 }

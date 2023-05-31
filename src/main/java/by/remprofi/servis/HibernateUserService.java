@@ -1,26 +1,26 @@
 package by.remprofi.servis;
 
 import by.remprofi.domain.Role;
-import by.remprofi.domain.hibernate.HibernateUser;
+import by.remprofi.domain.hibernate.HiberUser;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface HibernateUserService {
 
-    HibernateUser findOne(Long id);
+    HiberUser findOne(Long id);
 
-    List<HibernateUser> findAll();
+    List<HiberUser> findAll();
 
-    HibernateUser create(HibernateUser object);
+    HiberUser create(HiberUser object);
 
-    HibernateUser update(HibernateUser object);
+    HiberUser update(HiberUser object);
 
     void delete(Long id);
 
-    List<HibernateUser> search(String query, Double rating);
+    List<HiberUser> search(String query, Double rating);
 
     List<Role> getHibernateUserAuthorities(Long userId);
 
-    Optional<HibernateUser> findByEmail(String email);
+    Optional<HiberUser> findByEmail(String email);
 }

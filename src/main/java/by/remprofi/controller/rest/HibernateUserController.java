@@ -6,7 +6,7 @@ import by.remprofi.controller.requests.UserCreateRequest;
 import by.remprofi.controller.requests.UserUpdateRequest;
 import by.remprofi.domain.Violations;
 import by.remprofi.domain.hibernate.AuthenticationInfo;
-import by.remprofi.domain.hibernate.HibernateUser;
+import by.remprofi.domain.hibernate.HiberUser;
 import by.remprofi.servis.HibernateUserService;
 import by.remprofi.util.UserFieldsGenerator;
 import lombok.RequiredArgsConstructor;
@@ -37,7 +37,7 @@ public class HibernateUserController {
 
     @GetMapping
     public ResponseEntity<Object> getAllUsers() {
-        List<HibernateUser> users = userService.findAll();
+        List<HiberUser> users = userService.findAll();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
@@ -51,7 +51,7 @@ public class HibernateUserController {
             throw new IllegalRequestException(result);
         }
 
-        HibernateUser hibernateUser = HibernateUser.builder()
+        HiberUser hiberUser = HiberUser.builder()
                 .name(request.getName())
                 .surname(request.getSurname())
                 .birthDate(request.getBirthDate())
@@ -63,21 +63,21 @@ public class HibernateUserController {
                 .drivingLicense(request.getDrivingLicense())
                 .build();
 
-        String generateEmail = emailGenerator.generateEmail(hibernateUser);
+        String generateEmail = emailGenerator.generateEmail(hiberUser);
         String generatePassword = emailGenerator.generatePassword();
         AuthenticationInfo info = new AuthenticationInfo(generateEmail, generatePassword);
 
-        hibernateUser.setAuthenticationInfo(info);
+        hiberUser.setAuthenticationInfo(info);
 
-        hibernateUser = userService.create(hibernateUser);
-        return new ResponseEntity<>(hibernateUser, HttpStatus.CREATED);
+        hiberUser = userService.create(hiberUser);
+        return new ResponseEntity<>(hiberUser, HttpStatus.CREATED);
     }
 
     @PutMapping
     public ResponseEntity<Object> updateUser(Principal principal, @RequestBody UserUpdateRequest request) {
 
 
-        HibernateUser one = userService.findOne(request.getId());
+        HiberUser one = userService.findOne(request.getId());
 
         one.setId(request.getId());
         one.setName(request.getName());
@@ -106,7 +106,7 @@ public class HibernateUserController {
             parsedRating = 50D;
         }
 
-        List<HibernateUser> searchList = userService.search(criteria.getQuery(), parsedRating);
+        List<HiberUser> searchList = userService.search(criteria.getQuery(), parsedRating);
 
         return new ResponseEntity<>(Collections.singletonMap("users", searchList), HttpStatus.OK);
     }

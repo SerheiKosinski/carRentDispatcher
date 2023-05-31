@@ -1,11 +1,14 @@
 package by.remprofi.repository.columns;
 
-public interface RoleColumns {
+public interface ICarParkColumns {
 
     String ID = "id";
-    String ROLE_NAME = "role_name";
-    String USER_ID = "user_id";
+
+    String CAR_ID = "car_id";
+
+    String PARK_ID = "park_id";
 
     String CREATED = "created";
+
     String CHANGED = "changed";
 }

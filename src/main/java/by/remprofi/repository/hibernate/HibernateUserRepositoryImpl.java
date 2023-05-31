@@ -1,6 +1,6 @@
 package by.remprofi.repository.hibernate;
 
-import by.remprofi.domain.hibernate.HibernateUser;
+import by.remprofi.domain.hibernate.HiberUser;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -21,17 +21,17 @@ public class HibernateUserRepositoryImpl implements HibernateUserRepository {
     private final EntityManagerFactory entityManagerFactory;
 
     @Override
-    public HibernateUser findOne(Long id) {
-        final String findByIdHQL = "select u from HibernateUser u where u.id = " + id;
+    public HiberUser findOne(Long id) {
+        final String findByIdHQL = "select u from HiberUser u where u.id = " + id;
 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        return entityManager.createQuery(findByIdHQL, HibernateUser.class).getSingleResult();
+        return entityManager.createQuery(findByIdHQL, HiberUser.class).getSingleResult();
     }
 
     @Override
-    public List<HibernateUser> findAll() {
+    public List<HiberUser> findAll() {
 
-        final String findAllHQL = "select u from HibernateUser u";
+        final String findAllHQL = "select u from HiberUser u";
 //        //final String findAllNative = "select * from users";
 //
 //        try (Session session = sessionFactory.openSession()) {
@@ -40,16 +40,16 @@ public class HibernateUserRepositoryImpl implements HibernateUserRepository {
 
 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        return entityManager.createQuery(findAllHQL, HibernateUser.class).getResultList();
+        return entityManager.createQuery(findAllHQL, HiberUser.class).getResultList();
     }
 
     @Override
-    public HibernateUser create(HibernateUser object) {
+    public HiberUser create(HiberUser object) {
         return update(object);
     }
 
     @Override
-    public HibernateUser update(HibernateUser object) {
+    public HiberUser update(HiberUser object) {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.getTransaction();
             transaction.begin();
@@ -119,12 +119,12 @@ public class HibernateUserRepositoryImpl implements HibernateUserRepository {
     }*/
 
     @Override
-    public List<HibernateUser> searchUser(String query, Double rating) {
+    public List<HiberUser> searchUser(String query, Double rating) {
         return null;
     }
 
     @Override
-    public Optional<HibernateUser> findByEmail(String email) {
+    public Optional<HiberUser> findByEmail(String email) {
         return Optional.empty();
     }
 }

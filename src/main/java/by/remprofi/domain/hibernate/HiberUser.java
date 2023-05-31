@@ -36,7 +36,7 @@ import java.sql.Timestamp;
 })
 @Entity
 @Table(name = "users")
-public class HibernateUser {
+public class HiberUser {
 
     @Id
     @GeneratedValue(generator = "users_id_seq", strategy = GenerationType.SEQUENCE)

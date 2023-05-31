@@ -33,7 +33,7 @@ import java.sql.Timestamp;
 })
 @Entity
 @Table(name = "car")
-public class HibernateCars {
+public class HiberCars {
 
     @Id
     @GeneratedValue(generator = "car_id_seq", strategy = GenerationType.SEQUENCE)
@@ -68,5 +68,5 @@ public class HibernateCars {
    @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonBackReference
-    private HibernateUser user;
+    private HiberUser user;
 }

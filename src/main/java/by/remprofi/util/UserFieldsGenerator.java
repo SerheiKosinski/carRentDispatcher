@@ -1,13 +1,13 @@
 package by.remprofi.util;
 
-import by.remprofi.domain.hibernate.HibernateUser;
+import by.remprofi.domain.hibernate.HiberUser;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserFieldsGenerator {
 
-    public String generateEmail(HibernateUser user) {
+    public String generateEmail(HiberUser user) {
         return user.getName() + "_" + user.getSurname() + "_" + user.getBirthDate().getTime() + "@wear.com";
     }
 

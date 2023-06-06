@@ -30,7 +30,6 @@ public class UserDetailsProvider implements UserDetailsService {
                 return new org.springframework.security.core.userdetails.User(
                         user.getEmail(),
                         user.getPassword(),
-//                        ["ROLE_USER", "ROLE_ADMIN"]
                         AuthorityUtils.commaSeparatedStringToAuthorityList(
                                 userService.getUserAuthorities(user.getId())
                                         .stream()

@@ -24,17 +24,16 @@ import static by.remprofi.repository.columns.UserColumns.SURNAME;
 
 @Repository
 @RequiredArgsConstructor
-@Order(0)
+@Order(10)
 public class UserRepositoryImpl implements UserRepository {
 
     private final Logger logger = Logger.getLogger(UserRepositoryImpl.class);
 
 
-
     @Override
     public List<User> findAll() {
 
-        return  null;
+        return null;
     }
 
     private User parseResultSet(ResultSet rs) {
@@ -92,6 +91,7 @@ public class UserRepositoryImpl implements UserRepository {
         return param.equalsIgnoreCase("jdbc");
 
     }
+
     @Override
     public List<Role> getUserAuthorities(Long userId) {
         return null;

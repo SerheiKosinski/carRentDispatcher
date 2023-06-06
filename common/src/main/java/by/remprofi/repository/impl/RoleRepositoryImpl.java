@@ -2,7 +2,7 @@ package by.remprofi.repository.impl;
 
 import by.remprofi.domain.Role;
 import by.remprofi.repository.RoleRepository;
-import by.remprofi.repository.rowmapper.RoleRowMapper;
+import by.remprofi.repository.rmapper.RoleRowMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.annotation.Order;

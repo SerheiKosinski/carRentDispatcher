@@ -13,5 +13,4 @@ public class UserUpdateRequest extends UserCreateRequest {
 
     private Long id;
 
-    private String violations;
 }

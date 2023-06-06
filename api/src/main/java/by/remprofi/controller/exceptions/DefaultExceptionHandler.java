@@ -47,7 +47,7 @@ public class DefaultExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorMessage> handleOthersException(Exception e) {
-        /* Handles all other exceptions. Status code 500. */
+
 
         String exceptionUniqueId = generator.uuidGenerator();
 
@@ -64,7 +64,6 @@ public class DefaultExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ErrorMessage> handleRuntimeException(RuntimeException e) {
-        /* Handles all other exceptions. Status code 500. */
 
         String exceptionUniqueId = generator.uuidGenerator();
 

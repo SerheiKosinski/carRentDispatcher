@@ -26,6 +26,8 @@ public class RoleController {
 
     private final UserService userService;
 
+
+
     @GetMapping
     public ResponseEntity<Map<String, Object>> getAllRoles() {
 
@@ -46,4 +48,5 @@ public class RoleController {
 
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
+
 }

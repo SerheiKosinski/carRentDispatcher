@@ -1,7 +1,7 @@
 package by.remprofi.controller.rest;
 
-import by.remprofi.domain.hibernate.HiberCars;
-import by.remprofi.repository.hibernate.HibernateCarsRepository;
+import by.remprofi.domain.hiber.HiberCar;
+import by.remprofi.repository.hiber.HibernateCarsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ public class CarsController {
 
     @GetMapping
     public ResponseEntity<Object> getAllCars() {
-        List<HiberCars> cars = carsRepository.findAll();
+        List<HiberCar> cars = carsRepository.findAll();
         return new ResponseEntity<>(cars, HttpStatus.OK);
     }
 }

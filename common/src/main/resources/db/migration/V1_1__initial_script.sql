@@ -40,7 +40,7 @@ create index tariff_tariff_name_index
 
 create table public.users
 (
-    id              bigint
+    id              bigserial
             primary key
         unique,
     name            varchar(200)                                        not null,

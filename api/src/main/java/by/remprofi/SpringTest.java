@@ -16,7 +16,6 @@ public class SpringTest {
 
 
     public static void main(String[] args) {
-//        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:application-context.xml");
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext("by.remprofi");
 
         UserRepository userRepository = applicationContext.getBean("userRepositoryImpl", UserRepository.class);

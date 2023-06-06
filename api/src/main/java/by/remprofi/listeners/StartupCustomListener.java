@@ -1,5 +1,5 @@
 package by.remprofi.listeners;
 
-public class StartupCustomListener /*implements ServletContextListener*/{
+public class StartupCustomListener {
 
 }

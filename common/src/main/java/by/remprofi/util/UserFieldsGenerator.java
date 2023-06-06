@@ -1,6 +1,6 @@
 package by.remprofi.util;
 
-import by.remprofi.domain.hibernate.HiberUser;
+import by.remprofi.domain.hiber.HiberUser;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class UserFieldsGenerator {
 
     public String generateEmail(HiberUser user) {
-        return user.getName() + "_" + user.getSurname() + "_" + user.getBirthDate().getTime() + "@wear.com";
+        return user.getName() + "_" + user.getSurname() + "_" + user.getBirthDate() + "@wear.com";
     }
 
     public String generatePassword() {

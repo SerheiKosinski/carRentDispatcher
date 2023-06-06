@@ -47,6 +47,4 @@ public class UserRestController {
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
-
-
 }

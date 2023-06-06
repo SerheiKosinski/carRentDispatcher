@@ -1,4 +1,6 @@
+by\remprofi\controller\converter\UserBaseConverter.class
 by\remprofi\security\util\CustomHeaders.class
+by\remprofi\controller\rest\HiberUserController.class
 by\remprofi\controller\exceptions\IllegalRequestException.class
 by\remprofi\controller\rest\springdata\UserDataController.class
 by\remprofi\security\dto\AuthResponse.class
@@ -9,7 +11,9 @@ by\remprofi\controller\requests\UserUpdateRequest.class
 by\remprofi\controller\mvc\UserController.class
 by\remprofi\configuration\ApplicationConfig.class
 by\remprofi\security\config\WebSecurityConfiguration.class
+by\remprofi\controller\converter\UserUpdateConverter.class
 by\remprofi\controller\exceptions\ErrorMessage.class
+by\remprofi\controller\rest\ParkController.class
 by\remprofi\controller\rest\RoleController.class
 by\remprofi\controller\rest\SpringInvestigationController.class
 by\remprofi\configuration\AmazonProperties.class
@@ -19,7 +23,6 @@ by\remprofi\filters\CharsetFilter.class
 by\remprofi\security\provider\UserDetailsProvider.class
 by\remprofi\Main.class
 by\remprofi\security\jwt\TokenProvider.class
-by\remprofi\controller\rest\HibernateUserController.class
 by\remprofi\controller\rest\CarsController.class
 by\remprofi\security\config\JWTConfiguration.class
 by\remprofi\controller\requests\UserCreateRequest.class
@@ -28,5 +31,8 @@ by\remprofi\controller\exceptions\DefaultExceptionHandler.class
 by\remprofi\security\controller\AuthenticationController.class
 by\remprofi\security\dto\AuthRequest$AuthRequestBuilder.class
 by\remprofi\SpringTest.class
+by\remprofi\controller\converter\UserCreateConverter.class
 by\remprofi\listeners\StartupCustomListener.class
+by\remprofi\configuration\SwaggerConfig.class
+by\remprofi\configuration\WebMVC.class
 by\remprofi\security\dto\AuthResponse$AuthResponseBuilder.class

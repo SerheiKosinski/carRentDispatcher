@@ -43,7 +43,6 @@ public class UserController {
         return modelAndView;
     }
 
-    //localhost:8080/users/1
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ModelAndView findUserById(@PathVariable String id) {
 
@@ -67,10 +66,7 @@ public class UserController {
         return modelAndView;
     }
 
-    //localhost:8080/users/search?query=some&weight=80
     @RequestMapping(value = "/search", method = RequestMethod.GET)
-/*    public ModelAndView searchUserByParam(@RequestParam("query") String query,
-                                          @RequestParam("weight") String weight) {*/
 
     public ModelAndView searchUserByParam(@Valid @ModelAttribute SearchCriteria criteria, BindingResult result) {
 

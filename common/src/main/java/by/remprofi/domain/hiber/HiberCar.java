@@ -1,6 +1,5 @@
 package by.remprofi.domain.hiber;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
@@ -34,10 +33,10 @@ import java.util.Set;
 @Setter
 @Getter
 @EqualsAndHashCode(exclude = {
-        "park" , "rentedOut"
+        "park" , "rented_out"
 })
 @ToString(exclude = {
-        "park" , "rentedOut"
+        "park" , "rented_out"
 })
 @Table(name = "car")
 @Entity
@@ -81,13 +80,18 @@ public class HiberCar {
     @JsonIgnoreProperties("car")
     private Set<HiberPark> park = Collections.emptySet();
 
-    @OneToOne
-    @JoinColumn(name = "rented_out")
-    @JsonBackReference
-    private HiberRentedOut rentedOut;
+   // @OneToOne
+   // @JoinColumn(name = "rented_out_id")
+   // @JsonBackReference
+   // private HiberRentedOut rentedOut;
 
-    @OneToOne(mappedBy = "car" , cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = false)
+    @OneToOne(mappedBy = "car" , cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER, orphanRemoval = false)
     @JsonManagedReference
     private HiberTehnicalInspection tehnicalInspection;
+
+     @OneToOne(mappedBy = "car" , cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = false)
+     @JsonManagedReference
+     private HiberRentedOut rentedOut;
 
 }

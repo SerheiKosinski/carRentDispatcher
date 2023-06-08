@@ -9,6 +9,6 @@ import java.util.List;
 public interface ParkDataRepository extends JpaRepository<HiberPark, Long> {
 
     @Cacheable("park")
-    List<HiberPark> findByVisible(Boolean visibleFlag);
+    List<HiberPark> findByCity(Boolean cityFlag);
 
 }

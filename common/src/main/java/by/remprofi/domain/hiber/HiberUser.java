@@ -1,7 +1,6 @@
 package by.remprofi.domain.hiber;
 
 import by.remprofi.domain.Violations;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,8 +22,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -38,10 +35,10 @@ import java.util.Set;
 @Setter
 @Getter
 @EqualsAndHashCode(exclude = {
-        "roles" , "rentedOut"
+        "roles" , "rented_out"
 })
 @ToString(exclude = {
-        "roles" , "rentedOut "
+        "roles" , "rented_out "
 })
 @Entity
 @Table(name = "users")
@@ -92,10 +89,14 @@ public class HiberUser {
      @JsonManagedReference
     private Set<HiberRoles> roles = Collections.emptySet();
 
-    @ManyToOne
-    @JoinColumn(name = "rented_out_id")
-    @JsonBackReference
-    private HiberRentedOut rentedOut;
+    ///@ManyToOne
+    ///@JoinColumn(name = "rented_out_id")
+    ///@JsonBackReference
+    ///private HiberRentedOut rentedOut;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = false)
+    @JsonManagedReference
+    private Set<HiberRentedOut> rentedOuts = Collections.emptySet();
 
 
 }

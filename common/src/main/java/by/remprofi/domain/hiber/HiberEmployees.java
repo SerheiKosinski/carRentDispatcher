@@ -30,10 +30,10 @@ import java.util.Set;
 @Setter
 @Getter
 @EqualsAndHashCode(exclude = {
-        "tehnicalInspection"
+        "tehnical_inspection"
 })
 @ToString(exclude = {
-        "tehnicalInspection"
+        "tehnical_inspection"
 })
 @Entity
 @Table(name ="employees")
@@ -61,11 +61,15 @@ public class HiberEmployees {
     private Timestamp changed;
 
     @ManyToMany
-    @JoinTable(name = "i_employees_tehnikal_inspection",
+    @JoinTable(name = "l_employees_tehnikal_inspection",
             joinColumns = @JoinColumn(name = "employees_id"),
             inverseJoinColumns = @JoinColumn(name = "tehnical_inspection_id")
     )
     @JsonIgnoreProperties("employees")
-    private Set<HiberTehnicalInspection> tehnicalInspection = Collections.emptySet();
+    private Set<HiberTehnicalInspection> tehnical_inspection = Collections.emptySet();
+
+    ///@ManyToMany(mappedBy = "tehnical_inspection", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    ///@JsonIgnoreProperties("tehnical_inspection")
+    ///private Set<HiberTehnicalInspection> tehnicalInspections = Collections.emptySet();
 
 }

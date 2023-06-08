@@ -1,5 +1,6 @@
 package by.remprofi.domain.hiber;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.cache.annotation.Cacheable;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,7 +19,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.sql.Timestamp;
 import java.util.Collections;
@@ -35,12 +36,12 @@ import java.util.Set;
         "car"
 })
 @Table(name = "park")
+@Cacheable("park")
 @Entity
 public class HiberPark {
 
     @Id
-    @GeneratedValue(generator = "park_id_seq", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "park_id_seq", sequenceName = "park_id_seq", allocationSize = 1, initialValue = 100)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "park_number")
@@ -53,9 +54,10 @@ public class HiberPark {
     private Timestamp changed;
 
     @Column
+    @JsonIgnore
     private String city;
 
-    @ManyToMany(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "park", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnoreProperties("park")
     private Set<HiberCar> car = Collections.emptySet();
 

@@ -64,14 +64,22 @@ public class HiberTehnicalInspection {
     @Column
     private Timestamp changed;
 
-    @ManyToMany(mappedBy = "employees", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("tehnical_inspection")
+    @ManyToMany(mappedBy = "tehnical_inspection", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("employees")
     private Set<HiberEmployees> employees = Collections.emptySet();
 
     @OneToOne
-    @JoinColumn(name = "car")
+    @JoinColumn(name = "car_id")
     @JsonBackReference
     private HiberCar car;
+
+    ///@ManyToMany
+    ///@JoinTable(name = "l_employees_tehnikal_inspection",
+    ///        joinColumns = @JoinColumn(name = "tehnical_inspection_id"),
+    ///        inverseJoinColumns = @JoinColumn(name = "employees_id")
+   /// )
+    ///@JsonIgnoreProperties("tehnical_inspection")
+    ///private Set<HiberEmployees> employees = Collections.emptySet();
 
 
 }
